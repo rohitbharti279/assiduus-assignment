@@ -1,11 +1,17 @@
 
 import './App.css';
-import Sidebar from './Components/Sidebar';
+import LineChart from './Components/LineChart ';
+// import Content from './Components/Content';
+// import Header from './Components/Header';
+// import Sidebar from './Components/Sidebar';
 
 function App() {
   return (
     <div className="App">
-      <Sidebar />
+      {/* <Sidebar /> */}
+      {/* <Header /> */}
+      {/* <Content /> */}
+      <LineChart />
     </div>
   );
 }
