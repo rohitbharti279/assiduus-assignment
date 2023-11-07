@@ -1,6 +1,6 @@
 
 import './App.css';
-import LineChart from './Components/LineChart ';
+import CheckingAccount from './Components/CheckingAccount';
 // import Content from './Components/Content';
 // import Header from './Components/Header';
 // import Sidebar from './Components/Sidebar';
@@ -11,7 +11,7 @@ function App() {
       {/* <Sidebar /> */}
       {/* <Header /> */}
       {/* <Content /> */}
-      <LineChart />
+      <CheckingAccount />
     </div>
   );
 }
