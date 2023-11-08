@@ -1,10 +1,10 @@
 
 import './App.css';
 import Invoices from './Components/Invoices';
-// import CheckingAccount from './Components/CheckingAccount';
-// import Content from './Components/Content';
-// import Header from './Components/Header';
-// import Sidebar from './Components/Sidebar';
+import CheckingAccount from './Components/CheckingAccount';
+import Content from './Components/Content';
+import Header from './Components/Header';
+import Sidebar from './Components/Sidebar';
 
 function App() {
   return (
@@ -12,8 +12,14 @@ function App() {
       {/* <Sidebar /> */}
       {/* <Header /> */}
       {/* <Content /> */}
-      {/* <CheckingAccount /> */}
+
+      {/* <div className='flex gap-2'>
+        <CheckingAccount />
       <Invoices />
+      </div> */}
+
+      
+      
     </div>
   );
 }

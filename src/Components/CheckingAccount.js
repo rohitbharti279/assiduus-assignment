@@ -37,14 +37,14 @@ const CheckingAccount = () => {
   // }
 
 // Event handler for randomize dropdown change
-function handleRandomizeChange(event) {
+function randomizeChange(event) {
   const selectedOption = event.target.value;
   setRandomizeOption(selectedOption);
   randomizeData(selectedOption);
 }
 
 // Event handler for month dropdown change
-function handleMonthChange(event) {
+function monthChange(event) {
   const selectedMonth = event.target.value;
   setSelectedMonth(selectedMonth);
   randomizeData(randomizeOption); // Randomize when a different month is selected
@@ -53,7 +53,7 @@ function handleMonthChange(event) {
   useEffect(() => {
     const svg = d3.select("#line-chart");
 
-    const margin = { top: 20, right: 20, bottom: 30, left: 50 };
+    const margin = { top: 20, right: 20, bottom: 30, left: 25 };
     const width = 600 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
 
@@ -81,6 +81,7 @@ function handleMonthChange(event) {
       .select(".domain")
       .remove();
 
+      // Remove vertical gridlines
     g.selectAll(".tick line").remove();
 
     g.append("path")
@@ -97,15 +98,15 @@ function handleMonthChange(event) {
 
   return (
     <div className='bg-white w-[40%] rounded-xl'>
-      <div className='flex justify-between p-3'>
-        <p className='tracking-tight font-medium text-lg'>Checking Account</p>
+      <div className='flex justify-between p-3 px-5'>
+        <p className='tracking-tight font-semibold text-lg'>Checking Account</p>
         <div className='flex gap-2'>
-          <select className='p-1 text-sm tracking-tighter border-2 border-slate-400 rounded' value={randomizeOption} onChange={handleRandomizeChange}>
+          <select className='p-1 text-sm tracking-tighter border-2 border-slate-400 rounded' value={randomizeOption} onChange={randomizeChange}>
             {randomizeOptions.map(option => (
               <option key={option} value={option}>{option}</option>
             ))}
           </select>
-          <select className='p-1 text-sm tracking-tighter border-2 border-slate-400 rounded' value={selectedMonth} onChange={handleMonthChange}>
+          <select className='p-1 text-sm tracking-tighter border-2 border-slate-400 rounded' value={selectedMonth} onChange={monthChange}>
             {months.map(month => (
               <option key={month} value={month}>{month}</option>
             ))}
@@ -113,9 +114,8 @@ function handleMonthChange(event) {
         </div>
       </div>
       <hr></hr>
-      <div>
+      
         <svg id="line-chart" width="600" height="400"></svg>
-      </div>
     </div>
   );
 };
