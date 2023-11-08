@@ -23,10 +23,10 @@ const CheckingAccount = () => {
     if (option === 'By Date') {
       setData(generateRandomData());
     } else if (option === 'Monthly') {
-      setData(generateRandomData(selectedMonth));
+      setData(generateRandomData());
       // setData(generateRandomDataForMonth(selectedMonth));
     } else if (option === 'Quarterly') {
-      setData(generateRandomData(selectedMonth));
+      setData(generateRandomData());
       // setData(generateRandomDataForQuarter(selectedMonth));
     }
   }
@@ -36,19 +36,19 @@ const CheckingAccount = () => {
   //   return Array.from({ length: 10 }, (_, i) => ({ x: i + 9, y: Math.random() * 10 }));
   // }
 
-  // Event handler for randomize dropdown change
-  function handleRandomizeChange(event) {
-    const selectedOption = event.target.value;
-    setRandomizeOption(selectedOption);
-    randomizeData(selectedOption);
-  }
+// Event handler for randomize dropdown change
+function handleRandomizeChange(event) {
+  const selectedOption = event.target.value;
+  setRandomizeOption(selectedOption);
+  randomizeData(selectedOption);
+}
 
-  // Event handler for month dropdown change
-  function handleMonthChange(event) {
-    const selectedMonth = event.target.value;
-    setSelectedMonth(selectedMonth);
-    randomizeData(randomizeOption); // Randomize when a different month is selected
-  }
+// Event handler for month dropdown change
+function handleMonthChange(event) {
+  const selectedMonth = event.target.value;
+  setSelectedMonth(selectedMonth);
+  randomizeData(randomizeOption); // Randomize when a different month is selected
+}
 
   useEffect(() => {
     const svg = d3.select("#line-chart");
@@ -112,7 +112,7 @@ const CheckingAccount = () => {
           </select>
         </div>
       </div>
-      <hr className=''></hr>
+      <hr></hr>
       <div>
         <svg id="line-chart" width="600" height="400"></svg>
       </div>

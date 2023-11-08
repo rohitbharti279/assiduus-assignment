@@ -1,6 +1,7 @@
 
 import './App.css';
-import CheckingAccount from './Components/CheckingAccount';
+import Invoices from './Components/Invoices';
+// import CheckingAccount from './Components/CheckingAccount';
 // import Content from './Components/Content';
 // import Header from './Components/Header';
 // import Sidebar from './Components/Sidebar';
@@ -11,7 +12,8 @@ function App() {
       {/* <Sidebar /> */}
       {/* <Header /> */}
       {/* <Content /> */}
-      <CheckingAccount />
+      {/* <CheckingAccount /> */}
+      <Invoices />
     </div>
   );
 }
