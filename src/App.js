@@ -5,7 +5,7 @@ import CheckingAccount from './Components/CheckingAccount';
 import Content from './Components/Content';
 import Header from './Components/Header';
 import Sidebar from './Components/Sidebar';
-import CashFlow from './Components/CashFlow';
+import TotalCashFlow from './Components/TotalCashFlow';
 
 function App() {
   return (
@@ -14,13 +14,12 @@ function App() {
       {/* <Header /> */}
       {/* <Content /> */}
 
-      <div className='flex gap-2'>
+      {/* <div className='flex gap-2'>
         <CheckingAccount />
       <Invoices />
-      </div>
+      </div> */}
 
-      <CashFlow />
-      
+      <TotalCashFlow />
     </div>
   );
 }
