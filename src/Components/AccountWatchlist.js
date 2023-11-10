@@ -15,7 +15,7 @@ const AccountWatchlist = () => {
             <hr></hr>
             <table>
                 <thead>
-                    <tr className="text-left">
+                    <tr className="text-left  text-sm tracking-tight text-slate-400">
                         <th className="font-normal px-5 p-4">Account</th>
                         <th className="font-normal px-5">This Month</th>
                         <th className="font-normal px-5">YTD</th>
@@ -24,10 +24,10 @@ const AccountWatchlist = () => {
 
                 <tbody>
                     {tableData.map((item, index) => (
-                        <tr key={index} className="odd:bg-white even:bg-slate-200 ">
-                            <td className="px-5 p-3">{item.category}</td>
-                            <td className="px-5">{item.thisMonth}</td>
-                            <td className="px-5">{item.YTD}</td>
+                        <tr key={index} className="odd:bg-white even:bg-slate-200 tracking-tight">
+                            <td className="px-5 p-3 font-medium ">{item.category}</td>
+                            <td className="px-5 font-medium ">{item.thisMonth}</td>
+                            <td className="px-5 font-medium ">{item.YTD}</td>
                         </tr>
                     ))}
                 </tbody>
