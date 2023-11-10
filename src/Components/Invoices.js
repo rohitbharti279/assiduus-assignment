@@ -46,11 +46,11 @@ const Invoices = () => {
       .attr('transform', `translate(0,${height})`)
       .call(xAxis);
 
-    // Remove x-axis line
-    g.selectAll('.domain').remove();
-
     // g.append('g')
     //   .call(yAxis);
+
+    // Remove x-axis line
+    g.selectAll('.domain').remove();
 
     // Remove vertical gridlines
     g.selectAll('.tick line').remove();

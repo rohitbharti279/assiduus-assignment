@@ -16,7 +16,6 @@ const CashFlow = () => {
   const graphRef = useRef(null);
 
   useEffect(() => {
-    // Data for demonstration purposes
     const data = [
       { month: 'January', in: 1000, out: 800 },
       { month: 'February', in: 1200, out: 900 },
@@ -38,7 +37,7 @@ const CashFlow = () => {
 
     // Check if the svg element already exists
     const svgElement = d3.select(graphRef.current).select('svg');
-    if (svgElement.empty()) {
+    if (svgElement.empty()) { //D3 code is only executed once
       const svg = d3
         .select(graphRef.current)
         .append('svg')
@@ -58,12 +57,15 @@ const CashFlow = () => {
         .domain([0, d3.max(data, (d) => d.in + d.out)])
         .range([height, 0]);
 
+        // Hide x-axis line
+      svg.selectAll('.domain').style('display', 'none');
+
       svg
         .append('g')
         .attr('transform', `translate(0,${height})`)
         .call(d3.axisBottom(x));
 
-      svg.append('g').call(d3.axisLeft(y));
+      // svg.append('g').call(d3.axisLeft(y));
 
       const bars = svg.selectAll('.bar').data(data).enter().append('g');
 
@@ -74,7 +76,9 @@ const CashFlow = () => {
         .attr('y', (d) => y(d.in))
         .attr('width', x.bandwidth())
         .attr('height', (d) => height - y(d.in))
-        .attr('fill', 'green');
+        .attr('fill', 'green')
+        .attr('rx', 5) // Set horizontal corner radius
+        .attr('ry', 5); // Set vertical corner radius;
 
       bars
         .append('rect')
@@ -83,7 +87,9 @@ const CashFlow = () => {
         .attr('y', (d) => y(d.in + d.out))
         .attr('width', x.bandwidth())
         .attr('height', (d) => height - y(d.out))
-        .attr('fill', 'blue');
+        .attr('fill', 'blue')
+        .attr('rx', 5) // Set horizontal corner radius
+        .attr('ry', 5); // Set vertical corner radius;
     }
   }, []);
 
