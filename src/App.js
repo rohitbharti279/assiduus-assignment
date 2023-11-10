@@ -6,6 +6,7 @@ import Content from './Components/Content';
 import Header from './Components/Header';
 import Sidebar from './Components/Sidebar';
 import TotalCashFlow from './Components/TotalCashFlow';
+import AccountWatchlist from './Components/AccountWatchlist';
 
 function App() {
   return (
@@ -19,7 +20,10 @@ function App() {
       <Invoices />
       </div> */}
 
+      <div className='flex flex-col lg:flex-row gap-2'>
       <TotalCashFlow />
+      <AccountWatchlist />
+      </div>
     </div>
   );
 }

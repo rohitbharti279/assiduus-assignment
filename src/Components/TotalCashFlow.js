@@ -1,38 +1,40 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
-  graphContainer: {
-    width: '100%',
-    overflowX: 'auto',
-    padding: theme.spacing(2),
-  },
-}));
+// Material UI
+// const useStyles = makeStyles((theme) => ({
+//   graphContainer: {
+//     width: '100%',
+//     overflowX: 'auto',
+// padding: theme.spacing(2),
+//   },
+// }));
 
-const CashFlow = () => {
-  const classes = useStyles();
+const TotalCashFlow = () => {
+  // const classes = useStyles();
   const graphRef = useRef(null);
 
   useEffect(() => {
     const data = [
-      { month: 'January', in: 1000, out: 800 },
-      { month: 'February', in: 1200, out: 900 },
-      { month: 'March', in: 800, out: 700 },
-      { month: 'April', in: 1100, out: 1000 },
-      { month: 'May', in: 900, out: 800 },
-      { month: 'June', in: 1300, out: 1100 },
-      { month: 'July', in: 1000, out: 800 },
-      { month: 'August', in: 1200, out: 900 },
-      { month: 'September', in: 800, out: 700 },
-      { month: 'October', in: 1100, out: 1000 },
-      { month: 'November', in: 900, out: 800 },
-      { month: 'December', in: 1300, out: 1100 },
+      { month: 'January', in: 300, out: 150 },
+      { month: 'February', in: 150, out: 75 },
+      { month: 'March', in: 200, out: 175 },
+      { month: 'April', in: 300, out: 200 },
+      { month: 'May', in: 200, out: 175 },
+      { month: 'June', in: 200, out: 150 },
+      { month: 'July', in: 300, out: 150 },
+      { month: 'August', in: 150, out: 75 },
+      { month: 'September', in: 200, out: 150 },
+      { month: 'October', in: 300, out: 200 },
+      { month: 'November', in: 200, out: 175 },
+      { month: 'December', in: 200, out: 150 },
     ];
 
-    const margin = { top: 20, right: 30, bottom: 30, left: 40 };
-    const width = 800 - margin.left - margin.right;
+    const margin = { top: -100, right: -60, bottom: 30, left: -65 };
+    // top: 10, right: -50, bottom: 30, left: -50
+    const width = 1100 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
 
     // Check if the svg element already exists
@@ -50,15 +52,12 @@ const CashFlow = () => {
         .scaleBand()
         .domain(data.map((d) => d.month))
         .range([0, width])
-        .padding(0.2);
+        .padding(0.8);
 
       const y = d3
         .scaleLinear()
         .domain([0, d3.max(data, (d) => d.in + d.out)])
         .range([height, 0]);
-
-        // Hide x-axis line
-      svg.selectAll('.domain').style('display', 'none');
 
       svg
         .append('g')
@@ -69,6 +68,12 @@ const CashFlow = () => {
 
       const bars = svg.selectAll('.bar').data(data).enter().append('g');
 
+      // Remove x-axis line
+      svg.selectAll('.domain').remove();
+
+      // Remove vertical gridlines
+      svg.selectAll('.tick line').remove();
+
       bars
         .append('rect')
         .attr('class', 'in-bar')
@@ -76,7 +81,7 @@ const CashFlow = () => {
         .attr('y', (d) => y(d.in))
         .attr('width', x.bandwidth())
         .attr('height', (d) => height - y(d.in))
-        .attr('fill', 'green')
+        .attr('fill', '#10B981')
         .attr('rx', 5) // Set horizontal corner radius
         .attr('ry', 5); // Set vertical corner radius;
 
@@ -84,20 +89,29 @@ const CashFlow = () => {
         .append('rect')
         .attr('class', 'out-bar')
         .attr('x', (d) => x(d.month))
-        .attr('y', (d) => y(d.in + d.out))
+        .attr('y', (d) => y(d.out))
         .attr('width', x.bandwidth())
         .attr('height', (d) => height - y(d.out))
-        .attr('fill', 'blue')
-        .attr('rx', 5) // Set horizontal corner radius
-        .attr('ry', 5); // Set vertical corner radius;
+        .attr('fill', 'green')
+        .attr('rx', 5)
+        .attr('ry', 5);
     }
   }, []);
 
   return (
-    <div>
-      <Container className={classes.graphContainer} ref={graphRef}></Container>
+    <div className='bg-white lg:w-[40%] rounded-xl'>
+      <div className='flex justify-between p-3 px-5'>
+        <p className='tracking-tight font-semibold text-lg'>Checking Account</p>
+        <div className='flex gap-3'>
+          <div className='flex gap-2 items-center'><p className='h-4 w-4 bg-[#10B981] rounded'></p><span className='text-xs font-medium'>In</span></div>
+          <div className='flex gap-2 items-center'><p className='h-4 w-4 bg-green-700 rounded'></p><span className='text-xs font-medium'>Out</span></div>
+        </div>
+      </div>
+      <hr></hr>
+      {/* <Container className={classes.graphContainer} ref={graphRef}></Container> //Material UI */}
+      <Container className='overflow-x-auto' ref={graphRef}></Container>
     </div>
   );
 };
 
-export default CashFlow;
+export default TotalCashFlow;
