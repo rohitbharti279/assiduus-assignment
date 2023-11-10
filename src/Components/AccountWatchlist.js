@@ -11,7 +11,27 @@ const AccountWatchlist = () => {
 
     return (
         <div className='bg-white lg:w-[40%] rounded-xl overflow-scroll'>
-            
+            <p className='tracking-tight font-semibold text-lg p-3 px-5'>Account watchlist</p>
+            <hr></hr>
+            <table>
+                <thead>
+                    <tr className="text-left">
+                        <th className="font-normal px-5 p-4">Account</th>
+                        <th className="font-normal px-5">This Month</th>
+                        <th className="font-normal px-5">YTD</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {tableData.map((item, index) => (
+                        <tr key={index} className="odd:bg-white even:bg-slate-200 ">
+                            <td className="px-5 p-3">{item.category}</td>
+                            <td className="px-5">{item.thisMonth}</td>
+                            <td className="px-5">{item.YTD}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     );
 };
