@@ -20,7 +20,7 @@ const Invoices = () => {
   useEffect(() => {
     const margin = { top: 10, right: -60, bottom: 30, left: -40 };
     const width = 480 - margin.left - margin.right;
-    const height = 220 - margin.top - margin.bottom;
+    const height = 200 - margin.top - margin.bottom;
 
     const svg = d3.select(chartRef.current)
       .attr('width', width + margin.left + margin.right)

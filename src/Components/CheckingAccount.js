@@ -55,7 +55,7 @@ function monthChange(event) {
 
     const margin = { top: 20, right: -30, bottom: 30, left: 25 };
     const width = 480 - margin.left - margin.right;
-    const height = 220 - margin.top - margin.bottom;
+    const height = 200 - margin.top - margin.bottom;
 
     const x = d3.scaleLinear()
       .domain([9, 18])
