@@ -35,7 +35,7 @@ const TotalCashFlow = () => {
     const margin = { top: -100, right: -60, bottom: 30, left: -65 };
     // top: 10, right: -50, bottom: 30, left: -50
     const width = 1100 - margin.left - margin.right;
-    const height = 400 - margin.top - margin.bottom;
+    const height = 220 - margin.top - margin.bottom;
 
     // Check if the svg element already exists
     const svgElement = d3.select(graphRef.current).select('svg');
@@ -99,7 +99,8 @@ const TotalCashFlow = () => {
   }, []);
 
   return (
-    <div className='bg-white lg:w-[40%] rounded-xl'>
+    <div className='bg-white xl:w-[50%] rounded-xl'>
+      {/* lg:w-[40%] */}
       <div className='flex justify-between p-3 px-5'>
         <p className='tracking-tight font-semibold text-lg'>Checking Account</p>
         <div className='flex gap-3'>

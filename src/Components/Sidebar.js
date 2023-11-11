@@ -35,7 +35,8 @@ const Sidebar = () => {
 
 
     return (
-        <aside className="bg-white lg:w-[30%] xl:w-[18%] lg:h-[100vh]">
+        <aside className="bg-white lg:w-[30%] xl:w-[18%] lg:h-[90vh]  pt-5">
+            {/* overflow-scroll */}
             <div className="container flex lg:flex-col justify-between lg:justify-normal md:px-8 lg:px-0 ">
                 {/* <div className="flex items-center px-2 py-3 ">
                     <img src={assiduus} alt="assiduus" className="w-16"></img>

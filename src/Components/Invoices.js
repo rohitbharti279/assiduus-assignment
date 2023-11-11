@@ -18,9 +18,9 @@ const Invoices = () => {
   const chartRef = useRef();
 
   useEffect(() => {
-    const margin = { top: 10, right: -50, bottom: 30, left: -50 };
+    const margin = { top: 10, right: -60, bottom: 30, left: -40 };
     const width = 480 - margin.left - margin.right;
-    const height = 400 - margin.top - margin.bottom;
+    const height = 220 - margin.top - margin.bottom;
 
     const svg = d3.select(chartRef.current)
       .attr('width', width + margin.left + margin.right)
@@ -68,7 +68,7 @@ const Invoices = () => {
   }, [data]);
 
   return (
-    <div className='bg-white w-[40%] rounded-xl'>
+    <div className='bg-white rounded-xl xl:w-[50%]'>
       <div className='flex justify-between items-center p-2 px-5'>
         <p className='tracking-tight font-semibold text-lg'>Invoices Owed to you</p>
         <div>

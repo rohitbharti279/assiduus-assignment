@@ -53,9 +53,9 @@ function monthChange(event) {
   useEffect(() => {
     const svg = d3.select("#line-chart");
 
-    const margin = { top: 20, right: 20, bottom: 30, left: 25 };
+    const margin = { top: 20, right: -30, bottom: 30, left: 25 };
     const width = 480 - margin.left - margin.right;
-    const height = 400 - margin.top - margin.bottom;
+    const height = 220 - margin.top - margin.bottom;
 
     const x = d3.scaleLinear()
       .domain([9, 18])
@@ -97,7 +97,7 @@ function monthChange(event) {
 
 
   return (
-    <div className='bg-white w-[40%] rounded-xl'>
+    <div className='bg-white rounded-xl xl:w-[50%]'>
       <div className='flex justify-between p-3 px-5'>
         <p className='tracking-tight font-semibold text-lg'>Checking Account</p>
         <div className='flex gap-2'>

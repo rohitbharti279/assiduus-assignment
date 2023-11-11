@@ -43,7 +43,7 @@ const Header = () => {
 
     return (
         <header className="bg-white flex flex-wrap justify-center md:justify-between items-center px-5">
-            <div className="flex items-center px-2 py-3 ">
+            <div className="flex items-center px-2">
                 <img src={assiduus} alt="assiduus" className="w-16"></img>
                 <span className="text-2xl md:text-3xl lg:text-2xl font-extrabold">ASSIDUUS <sup className='font-medium'>&trade;</sup></span>
 
