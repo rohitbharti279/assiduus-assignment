@@ -36,14 +36,8 @@ const Sidebar = () => {
 
     return (
         <aside className="bg-white lg:w-[22%] xl:w-[18%] lg:h-[90vh]  pt-5">
-            {/* overflow-scroll */}
             <div className="container flex lg:flex-col justify-between lg:justify-normal md:px-8 lg:px-0 ">
-                {/* <div className="flex items-center px-2 py-3 ">
-                    <img src={assiduus} alt="assiduus" className="w-16"></img>
-                    <span className="text-2xl md:text-3xl lg:text-2xl font-extrabold">ASSIDUUS <sup className='font-medium'>&trade;</sup></span>
-
-                </div> */}
-
+                
                 <div className="hidden mt-3 lg:flex lg:flex-col ">
                     {menuItemData.map((menuItem, index) => (
                         <Router key={index}>
