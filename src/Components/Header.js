@@ -42,7 +42,7 @@ const Header = () => {
     };
 
     return (
-        <header className="bg-white flex flex-wrap justify-center md:justify-between items-center px-5">
+        <header className="bg-white flex flex-wrap justify-center md:justify-between items-center px-5 sticky top-0">
             <div className="flex items-center px-2">
                 <img src={assiduus} alt="assiduus" className="w-16"></img>
                 <span className="text-2xl md:text-3xl lg:text-2xl font-extrabold">ASSIDUUS <sup className='font-medium'>&trade;</sup></span>
@@ -58,10 +58,10 @@ const Header = () => {
                     <input type="search" placeholder="search" className="py-1.5 text-sm rounded-md pl-10 focus:outline-none bg-slate-200"></input>
                 </form>
 
-                <img src={alert} alt="alert-icon" className="w-6 h-6 my-auto"></img>
+                <img src={alert} alt="alert-icon" className="w-6 h-6 my-auto cursor-pointer"></img>
 
                 <Router>
-                    <div className="dropdown p-1.5 px-2 rounded-md">
+                    <Link className="dropdown p-1.5 px-2 rounded-md">
                         <div className="selected-user flex gap-5 justify-between items-center" onClick={toggleDropdown}>
                             <img
                                 src={users[selectedUser].image}
@@ -89,7 +89,7 @@ const Header = () => {
                                 ))}
                             </div>
                         )}
-                    </div>
+                    </Link>
                 </Router>
             </div>
         </header>

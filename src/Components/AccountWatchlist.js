@@ -10,7 +10,7 @@ const AccountWatchlist = () => {
     ];
 
     return (
-        <div className='bg-white xl:w-[60%] rounded-xl'>
+        <div className='bg-white xl:w-[60%] rounded-xl overflow-scroll'>
             <p className='tracking-tight font-semibold text-lg p-3 px-5'>Account watchlist</p>
             <hr></hr>
             <table className="w-full">

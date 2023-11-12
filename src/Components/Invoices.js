@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import { Button, Modal } from '@mui/material';
-import "./Invoices.css"
+import "./Invoices.css";
+import upload from "./SVG/upload-svgrepo-com.svg"
 
 const Invoices = () => {
   const [showModal, setShowModal] = useState(false);
@@ -19,8 +20,8 @@ const Invoices = () => {
 
   useEffect(() => {
     const margin = { top: 10, right: -60, bottom: 30, left: -40 };
-    const width = 480 - margin.left - margin.right;
-    const height = 200 - margin.top - margin.bottom;
+    const width = window.innerWidth < 640 ? 600 : 650;
+    const height = window.innerHeight < 640 ? 210 : 190;
 
     const svg = d3.select(chartRef.current)
       .attr('width', width + margin.left + margin.right)
@@ -68,15 +69,15 @@ const Invoices = () => {
   }, [data]);
 
   return (
-    <div className='bg-white rounded-xl xl:w-[50%]'>
+    <div className='bg-white rounded-xl md:w-[50%]'>
       <div className='flex justify-between items-center p-2 px-5'>
-        <p className='tracking-tight font-semibold text-lg'>Invoices Owed to you</p>
+        <p className='tracking-tight font-semibold md:text-lg text-center'>Invoices Owed to you</p>
         <div>
           <Button
             style={{
               color: 'green',
               backgroundColor: 'var(--slate-200)',
-              textTransform: 'none', // text is not transformed in to capital
+              textTransform: 'none', 
               letterSpacing: '-0.02em',
               fontWeight: 'bold',
               textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)'
@@ -88,15 +89,44 @@ const Invoices = () => {
           </Button>
 
           <Modal open={showModal} onClose={() => setShowModal(false)}>
-            <div style={{ margin: '20px' }}>
-              <input type="file" />
+            <div className="flex flex-col justify-center items-center fixed bg-[#000000b3] top-0 w-[100vw] h-[100vh]">
+              <div className="bg-white rounded-md font-serif py-8 md:p-2 md:w-[26rem] md:h-[22rem] lg:w-[32rem] xl:w-[35rem] xl:h-[25rem] xl:p-4 flex flex-col justify-center items-center">
+
+              <button
+                  className="absolute top-3 right-3 cursor-pointer text-xl"
+                  onClick={() => setShowModal(false)}
+                >
+                  ❌
+                </button>
+
+                <label htmlFor="fileInput" className="cursor-pointer">
+                  <img
+                    src={upload}
+                    alt="upload file"
+                    className="w-[5rem] md:w-[10rem] bg-blend-multiply filter-none"
+                  />
+                </label>
+
+                <p className="text-xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-yellow-500 cursor-pointer">
+                  Upload Files
+                </p>
+                <p className="lg:text-lg xl:text-xl text-black text-center lg:mt-5 p-3">
+                  Drop your files here or <label htmlFor="fileInput" className='text-blue-800 cursor-pointer'>browse for files</label>
+                </p>
+                <div className='px-10'>
+                  <input type="file" id="fileInput" style={{ display: 'none' }} />
+                </div>
+              </div>
             </div>
           </Modal>
+
         </div>
       </div>
       <hr></hr>
 
-      <svg className='tracking-wider text-2xl' ref={chartRef} />
+      <div className='overflow-x-auto pr-5 xl:pr-0'>
+        <svg className='tracking-wider text-2xl' ref={chartRef} />
+      </div>
 
     </div>
   );

@@ -33,9 +33,8 @@ const TotalCashFlow = () => {
     ];
 
     const margin = { top: -100, right: -60, bottom: 30, left: -65 };
-    // top: 10, right: -50, bottom: 30, left: -50
-    const width = 1100 - margin.left - margin.right;
-    const height = 200 - margin.top - margin.bottom;
+    const width = window.innerWidth < 640 ? 1200 : 1200;
+    const height = window.innerHeight < 640 ? 300 : 270;
 
     // Check if the svg element already exists
     const svgElement = d3.select(graphRef.current).select('svg');
@@ -101,7 +100,7 @@ const TotalCashFlow = () => {
   return (
     <div className='bg-white xl:w-[50%] rounded-xl'>
       <div className='flex justify-between p-3 px-5'>
-        <p className='tracking-tight font-semibold text-lg'>Checking Account</p>
+        <p className='tracking-tight font-semibold md:text-lg'>Checking Account</p>
         <div className='flex gap-3'>
           <div className='flex gap-2 items-center'><p className='h-4 w-4 bg-[#10B981] rounded'></p><span className='text-xs font-medium'>In</span></div>
           <div className='flex gap-2 items-center'><p className='h-4 w-4 bg-green-700 rounded'></p><span className='text-xs font-medium'>Out</span></div>

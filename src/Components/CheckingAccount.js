@@ -53,9 +53,9 @@ function monthChange(event) {
   useEffect(() => {
     const svg = d3.select("#line-chart");
 
-    const margin = { top: 20, right: -30, bottom: 30, left: 25 };
-    const width = 480 - margin.left - margin.right;
-    const height = 200 - margin.top - margin.bottom;
+    const margin = { top: 20, right: -30, bottom: Math.max(20, window.innerWidth < 640 ? 30 : 0), left: 25 };
+    const width = window.innerWidth < 640 ? 400 : 530;
+    const height = window.innerHeight < 640 ? 200 : 180;
 
     const x = d3.scaleLinear()
       .domain([9, 18])
@@ -95,11 +95,15 @@ function monthChange(event) {
 
   }, [data]);
 
+  const isSmallScreen = window.innerWidth < 640;
+  const svgWidth = isSmallScreen ? 450 : 600;
+  const svgHeight = isSmallScreen ? 250 : 450;
+
 
   return (
-    <div className='bg-white rounded-xl xl:w-[50%]'>
+    <div className='bg-white rounded-xl md:w-[50%]'>
       <div className='flex justify-between p-3 px-5'>
-        <p className='tracking-tight font-semibold text-lg'>Checking Account</p>
+        <p className='tracking-tight font-semibold md:text-lg'>Checking Account</p>
         <div className='flex gap-2'>
           <select className='p-1 text-sm tracking-tighter border-2 border-slate-400 rounded' value={randomizeOption} onChange={randomizeChange}>
             {randomizeOptions.map(option => (
@@ -114,8 +118,11 @@ function monthChange(event) {
         </div>
       </div>
       <hr></hr>
+
+      <div className='overflow-x-auto'>
+        <svg className='' id="line-chart" width={svgWidth} height={svgHeight}></svg>
+      </div>
       
-        <svg id="line-chart" width="600" height="400"></svg>
     </div>
   );
 };
