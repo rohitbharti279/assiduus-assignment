@@ -100,7 +100,7 @@ const TotalCashFlow = () => {
   return (
     <div className='bg-white xl:w-[50%] rounded-xl'>
       <div className='flex justify-between p-3 px-5'>
-        <p className='tracking-tight font-semibold md:text-lg'>Checking Account</p>
+        <p className='tracking-tight font-semibold md:text-lg'>Total cash flow</p>
         <div className='flex gap-3'>
           <div className='flex gap-2 items-center'><p className='h-4 w-4 bg-[#10B981] rounded'></p><span className='text-xs font-medium'>In</span></div>
           <div className='flex gap-2 items-center'><p className='h-4 w-4 bg-green-700 rounded'></p><span className='text-xs font-medium'>Out</span></div>
