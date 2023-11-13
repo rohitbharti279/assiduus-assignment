@@ -54,7 +54,7 @@ function monthChange(event) {
     const svg = d3.select("#line-chart");
 
     const margin = { top: 20, right: -30, bottom: Math.max(20, window.innerWidth < 640 ? 30 : 0), left: 25 };
-    const width = window.innerWidth < 640 ? 400 : 530;
+    const width = window.innerWidth < 640 ? 400 : 540;
     const height = window.innerHeight < 640 ? 200 : 180;
 
     const x = d3.scaleLinear()

@@ -1,0 +1,15 @@
+.sidebar {
+  top: 10.5rem;
+}
+
+@media (min-width: 425px) {
+  .sidebar {
+    top: 7.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    top: 4rem;
+  }
+}

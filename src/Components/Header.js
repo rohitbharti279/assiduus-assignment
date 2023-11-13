@@ -13,6 +13,7 @@ import upArrow from "./SVG/caret-up-solid.svg";
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedUser, setSelectedUser] = useState(0);
+    const [showAlert, setShowAlert] = useState(false);
 
     const users = [
         {
@@ -41,8 +42,12 @@ const Header = () => {
         setIsOpen(false);
     };
 
+    const toggleAlert = () => {
+        setShowAlert(!showAlert);
+    };
+
     return (
-        <header className="bg-white flex flex-wrap justify-center md:justify-between items-center px-5 sticky top-0">
+        <header className="bg-white flex flex-wrap justify-center md:justify-between items-center px-5 sticky top-0 z-50">
             <div className="flex items-center px-2">
                 <img src={assiduus} alt="assiduus" className="w-16"></img>
                 <span className="text-2xl md:text-3xl lg:text-2xl font-extrabold">ASSIDUUS <sup className='font-medium'>&trade;</sup></span>
@@ -58,7 +63,13 @@ const Header = () => {
                     <input type="search" placeholder="search" className="py-1.5 text-sm rounded-md pl-10 focus:outline-none bg-slate-200"></input>
                 </form>
 
-                <img src={alert} alt="alert-icon" className="w-6 h-6 my-auto cursor-pointer"></img>
+                <img src={alert} alt="alert-icon" className="w-6 h-6 my-auto cursor-pointer" onClick={toggleAlert}></img>
+                {showAlert && (
+                    <div className="absolute top-16 right-16 bg-white p-4 rounded shadow-md">
+                        <p className="text-gray-800">This is your alert/notification content.</p>
+                        <button onClick={toggleAlert} className="text-blue-500 hover:underline">Close</button>
+                    </div>
+                )}
 
                 <Router>
                     <Link className="dropdown p-1.5 px-2 rounded-md">

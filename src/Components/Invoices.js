@@ -72,7 +72,7 @@ const Invoices = () => {
     <div className='bg-white rounded-xl md:w-[50%]'>
       <div className='flex justify-between items-center p-2 px-5'>
         <p className='tracking-tight font-semibold md:text-lg text-center'>Invoices Owed to you</p>
-        <div>
+        <div className='z-0'>
           <Button
             style={{
               color: 'green',

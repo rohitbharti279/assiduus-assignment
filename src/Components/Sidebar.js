@@ -34,7 +34,7 @@ const Sidebar = () => {
 
 
     return (
-        <aside className="bg-white lg:w-[22%] xl:w-[18%] lg:h-[90vh]  pt-5">
+        <aside className="sidebar bg-white lg:w-[22%] xl:w-[18%] lg:h-[90vh]  pt-[17px] sticky z-20">
             <div className="container flex lg:flex-col justify-between lg:justify-normal md:px-8 lg:px-0 ">
 
                 <div className="hidden mt-3 lg:flex lg:flex-col ">
@@ -50,7 +50,7 @@ const Sidebar = () => {
                                     <img
                                         src={menuItem.icon}
                                         alt={`${menuItem.text} Icon`}
-                                        className="w-5 "
+                                        className={`w-5 ${activeMenuItem === index ? "filter invert" : ""}`}
                                     />
                                     {menuItem.text}
                                 </p>
@@ -87,7 +87,7 @@ const Sidebar = () => {
                             onClick={() => hamburgerMenu(index)}
                         >
                             <p className="flex gap-5 mx-8 text-lg font-medium">
-                                <img src={menuItem.icon} alt={`${menuItem.text} Icon`} className='w-5' />
+                                <img src={menuItem.icon} alt={`${menuItem.text} Icon`} className={`w-5 ${activeMenuItem === index ? "filter invert" : ""}`} />
                                 {menuItem.text}
                             </p>
                         </Link>
